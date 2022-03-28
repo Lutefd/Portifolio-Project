@@ -153,11 +153,14 @@ p {
 .section {
   padding: 5rem 0;
 }
-
 .section-center {
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
+}
+.section-title {
+  margin-bottom: 4rem;
+  text-align: center;
 }
 @media screen and (min-width: 992px) {
   .section-center {
@@ -326,6 +329,13 @@ Hero
 .hero-img {
   display: none;
 }
+.hero-photo {
+  max-width: 25rem;
+  max-height: 30rem;
+  object-fit: cover;
+  border-radius: var(--radius);
+  position: relative;
+}
 .hero {
   background: var(--clr-primary-10);
 }
@@ -351,14 +361,9 @@ Hero
   .hero-center {
     grid-template-columns: 1fr 1fr;
   }
-  .hero-photo {
-    max-width: 25rem;
-    max-height: 30rem;
-    object-fit: cover;
-    border-radius: var(--radius);
-    position: relative;
-  }
-  .hero-img::before {
+
+  .hero-img::before,
+  .about-img::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -369,14 +374,38 @@ Hero
     border-radius: var(--radius);
   }
 }
+
 /*
 =============== 
 About
 ===============
 */
-
-/* section title added to globals */
-
+.about-title {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.about-title .underline {
+  margin-left: 0;
+}
+.about-center {
+  display: grid;
+  gap: 3rem 2rem;
+}
+.about-img {
+  justify-self: center;
+  position: relative;
+}
+@media screen and (min-width: 992px) {
+  .about-center {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-img::before {
+    left: -2rem;
+  }
+  .about-info {
+    align-self: center;
+  }
+}
 /*
 =============== 
 Services
@@ -390,13 +419,132 @@ Services
 Projects
 ===============
 */
-
+.projects-text {
+  width: 85vw;
+  max-width: 30rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.projects {
+  background: var(--clr-grey-10);
+}
+.project {
+  position: relative;
+  background: var(--clr-primary-5);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+.project-img {
+  border-radius: var(--radius);
+  transition: var(--transition);
+  height: 15rem;
+  object-fit: cover;
+}
+.project:hover .project-img {
+  opacity: 0.2;
+}
+.project-info {
+  text-align: center;
+  color: var(--clr-white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: var(--transition);
+  opacity: 0;
+}
+.project:hover .project-info {
+  opacity: 1;
+}
+.project-info p {
+  text-transform: capitalize;
+  color: var(--clr-white);
+}
+.project::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0.25rem solid var(--clr-white);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  opacity: 0;
+}
+.project:hover::after {
+  opacity: 1;
+  transform: scale(0.8);
+}
+@media screen and (min-width: 676px) {
+  .projects-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .projects-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1170px) {
+  .project-img {
+    height: 100%;
+  }
+  .project {
+    height: 100%;
+  }
+  .projects-center {
+    grid-template-rows: repeat(2, 200px);
+    gap: 1rem;
+    grid-template-areas:
+      "a b b"
+      "a c d";
+  }
+  .project-1 {
+    grid-area: a;
+  }
+  .project-2 {
+    grid-area: b;
+  }
+  .project-3 {
+    grid-area: c;
+  }
+  .project-4 {
+    grid-area: d;
+  }
+}
 /*
 =============== 
 Connect
 ===============
 */
-
+.connect {
+  min-height: 40vh;
+  position: relative;
+  padding: 10rem 0 5rem 0;
+  margin: 5rem 0;
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.connect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-white);
+  opacity: 0.7;
+}
 /*
 =============== 
 Skills
