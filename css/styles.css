@@ -427,7 +427,7 @@ Projects
   margin-bottom: 2rem;
 }
 .projects {
-  background: var(--clr-grey-10);
+  background: var(--clr-white);
 }
 .project {
   position: relative;
@@ -575,6 +575,50 @@ Connect
 Skills
 ===============
 */
+.skills {
+  background-color: var(--clr-grey-10);
+}
+
+.skill {
+  background: var(--clr-white);
+  padding: 2rem 1rem;
+  width: 100%;
+  border-radius: 1rem;
+  transition: var(--transition);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.skill .underline {
+  width: 2rem;
+  height: 0.12;
+  transition: var(--transition);
+}
+/* .skill p {
+  transform: var(--transition);
+} */
+.skill:hover {
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+}
+.skill:hover .underline {
+  background: var(--clr-white);
+}
+@media screen and (min-width: 676px) {
+  .skills-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .skills-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 /*
 =============== 
 Timeline
